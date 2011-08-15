@@ -1,0 +1,5 @@
+tmp
+build
+!build/android/.gitignore
+!build/iphone/.gitignore
+.DS_Store

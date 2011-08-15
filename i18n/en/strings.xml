@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="todo_win">ToDo</string>
+	<string name="archiv_win">Archive</string>
+	<string name="todo_tab">ToDo</string>
+	<string name="archiv_tab">Archive</string>
+	<string name="status_open">Status: to complete</string>
+	<string name="status_done">Status: done</string>
+	<string name="delete">delete</string>
+	<string name="todo_desc">Description</string>
+	<string name="completed">complete</string>
+</resources>
