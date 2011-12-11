@@ -8,5 +8,14 @@
 	<string name="status_done">Status: erledigt</string>
 	<string name="delete">Löschen</string>
 	<string name="todo_desc">Beschreibung</string>
+	<string name="todo_name">Titel</string>
+	<string name="new_todo">ToDo erstellen</string>
+	<string name="save">Speichern</string>
 	<string name="completed">Erledigt</string>
+	<string name="add">Neu</string>
+	<string name="close">Abbr.</string>
+	<string name="created">Erstellt am:</string>
+	<string name="photo">Foto erfassen</string>
+	<string name="map_button">Auf der Karte zeigen</string>
+	<string name="done_at">Erledigt in:</string>
 </resources>

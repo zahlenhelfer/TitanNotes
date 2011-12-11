@@ -8,5 +8,11 @@
 	<string name="status_done">Status: done</string>
 	<string name="delete">delete</string>
 	<string name="todo_desc">Description</string>
+	<string name="todo_name">Name</string>
+	<string name="new_todo">new todo</string>
+	<string name="save">Save</string>
 	<string name="completed">complete</string>
+	<string name="photo">take photo</string>
+	<string name="map_button">show on map</string>
+	<string name="done_at">done at:</string>
 </resources>
