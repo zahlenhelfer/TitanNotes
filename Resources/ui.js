@@ -6,6 +6,7 @@
 		
 		var todo = tino.ui.createTodoListWindow(false);
 		var archiv = tino.ui.createTodoListWindow(true);
+		var setting = tino.ui.createSettingWindow();
 		
 		tino.ui.todoTab = Titanium.UI.createTab({
 		  title: L('todo_tab'),
@@ -16,12 +17,62 @@
 		  title: L('archiv_tab'),
 		  window: archiv
 		});
+
+		tino.ui.settingTab = Titanium.UI.createTab({
+		  title: L('setting_tab'),
+		  window: setting
+		});
 		
 		// Einzelne Zuweisung der Tabs
 		tabGroup.addTab(tino.ui.todoTab);
 		tabGroup.addTab(tino.ui.archivTab);
+		tabGroup.addTab(tino.ui.settingTab);
 		
 		return tabGroup;
+	};
+
+	tino.ui.createSettingWindow = function() {
+		var win = Titanium.UI.createWindow({
+		  title: L('setting_win')
+		});
+
+		var userName = Ti.UI.createTextField({
+			height:40,
+			top:10,
+			width:200,
+			keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
+			returnKeyType:Titanium.UI.RETURNKEY_DONE,
+			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+			hintText:L('userName')
+		});
+
+		var saveTCButton = Ti.UI.createButton({
+			title:L('saveToCloud'),
+			top:60,
+			height:40,
+			width:200
+		});
+		
+		var restoreTCButton = Ti.UI.createButton({
+			title:L('restoreToCloud'),
+			top:110,
+			height:40,
+			width:200
+		});
+		
+		saveTCButton.addEventListener('click', function(_e) {
+			tino.db.backup(userName.value);
+		});
+		
+		restoreTCButton.addEventListener('click', function(_e) {
+			tino.db.restore(userName.value);
+		});
+		
+		win.add(userName);
+		win.add(saveTCButton);
+		win.add(restoreTCButton);
+		
+		return win;
 	};
 
 	tino.ui.createTodoListWindow = function(/*Boolean*/ _archiv) {

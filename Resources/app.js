@@ -3,6 +3,7 @@ Titanium.UI.setBackgroundColor('#ffffff');
 
 var tino = {}; //tino ist unser applications namespace
 Ti.include( // hier folgt die Liste der Dateien die Eingebunden werden sollen.
+	'net.js',
 	'ui.js',
 	'db.js'
 );

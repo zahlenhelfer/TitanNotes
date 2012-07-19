@@ -18,4 +18,9 @@
 	<string name="photo">Foto erfassen</string>
 	<string name="map_button">Auf der Karte zeigen</string>
 	<string name="done_at">Erledigt in:</string>
+	<string name="setting_win">Einstellungen</string>
+	<string name="setting_tab">Einst.</string>
+	<string name="userName">Benutzername</string>
+	<string name="saveToCloud">Sichern</string>
+	<string name="restoreToCloud">Wiederherstellen</string>
 </resources>

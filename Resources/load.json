@@ -1,0 +1,26 @@
+{
+    "uuidTasks": "ded59fe4b0729915cd75589f4547e20e651762bb",
+ 	"taskCount":"2",
+    "tasks": [
+        {
+            "taskId": 1,
+            "todoHead": "Artikel schreiben",
+            "todoDesc": "Artikel über Android 4.0 schreiben",
+            "createDate": "",
+            "done": 1,
+            "url": "aaa.jpg",
+            "capturedLat": 32.232323,
+            "capturedLong": -2.232323
+        },
+        {
+            "taskId": 2,
+            "todoHead": "Müll rausbringen",
+            "todoDesc": "Bitte zur Mülltonne bringen",
+            "createDate": "",
+            "done": 0,
+            "url": "",
+            "capturedLat": 32.232323,
+            "capturedLong": -2.232323
+        }
+    ]
+}

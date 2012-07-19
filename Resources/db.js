@@ -77,4 +77,59 @@
 		Ti.App.fireEvent("databaseUpdated");
 	};
 	
+	tino.db.backup = function(_uname) {	
+		var todoList = [];
+		var db = Ti.Database.open('TitanNotes');
+		var result = db.execute('SELECT * FROM todo ORDER BY todoHead ASC');
+		while (result.isValidRow()) {
+			todoList.push({
+				todoHead: result.fieldByName('todoHead'),
+				todoDesc: result.fieldByName("todoDesc"),
+				createDate:result.fieldByName("createDate"),
+				done: result.fieldByName("done"),
+				url: result.fieldByName('url'),
+				capturedLat: Number(result.fieldByName('capturedLat')),
+				capturedLong: Number(result.fieldByName('capturedLong'))
+			});
+			result.next();
+		}
+		result.close();
+		db.close();
+		
+		tino.net.backupTasks(_uname,todoList);
+	};
+	
+	tino.db.createTask = function(_todoHead,_todoDesc,_done,_createDate,_url,_capturedLat,_capturedLong) {	
+		var db = Ti.Database.open('TitanNotes');
+		Ti.API.info('tino.db.createTask: '+_todoHead);
+		db.execute("INSERT INTO todo(todoHead,todoDesc,done,url,capturedLat,capturedLong,createDate) VALUES(?,?,?,?,?,?,?)",
+			_todoHead,
+			_todoDesc,
+			_done,
+			_url,
+			_capturedLat,
+			_capturedLong,
+			_createDate
+		);
+		db.close();
+
+		Ti.App.fireEvent("databaseUpdated");
+	};
+	
+	tino.db.restore = function(_uname) {	
+		tino.net.restoreTasks(_uname,function(data) {
+			for (var i = 0;i<data.length;i++) {
+				tino.db.createTask(
+					data[i].todoHead,
+					data[i].todoDesc,
+					data[i].done,
+					data[i].createDate,
+					data[i].url,
+					data[i].capturedLat,
+					data[i].capturedLong
+				);
+			}
+		});
+	};
+	
 })();
